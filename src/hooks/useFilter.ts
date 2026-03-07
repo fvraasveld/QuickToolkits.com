@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react';
-import { Tool, ToolCategory } from '../types';
+import { Tool } from '../types';
 import { filterToolsByCategory } from '../utils/helpers';
 
 /**
