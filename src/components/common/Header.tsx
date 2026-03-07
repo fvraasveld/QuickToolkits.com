@@ -1,18 +1,9 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import { useUser } from '../../context/UserContext';
+import { Link } from 'react-router-dom';
 import { SITE_NAME } from '../../utils/constants';
 
 const Header: React.FC = () => {
-  const { isPremium, upgradeToPremium } = useUser();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const navigate = useNavigate();
-
-  const handleUpgrade = () => {
-    // Demo upgrade - in production, this would open a payment modal
-    upgradeToPremium();
-    alert('🎉 Upgraded to Premium! You now have access to all tools.');
-  };
 
   return (
     <header className="sticky top-0 z-50 glass border-b border-dark-100 shadow-sm">
@@ -46,26 +37,24 @@ const Header: React.FC = () => {
             >
               All Tools
             </Link>
-            {!isPremium && (
-              <button
-                onClick={handleUpgrade}
-                className="bg-gradient-to-r from-amber-400 to-orange-500 text-white px-5 py-2 rounded-lg font-medium hover:from-amber-500 hover:to-orange-600 transition-all duration-300 shadow-md hover:shadow-lg"
-              >
-                ⭐ Upgrade to Premium
-              </button>
-            )}
-            {isPremium && (
-              <span className="bg-gradient-to-r from-amber-400 to-orange-500 text-white px-4 py-2 rounded-lg font-medium flex items-center space-x-1">
-                <span>👑</span>
-                <span>Premium</span>
-              </span>
-            )}
+            <Link
+              to="/about"
+              className="text-dark-600 hover:text-primary-600 font-medium transition-colors"
+            >
+              About
+            </Link>
+            <Link
+              to="/contact"
+              className="text-dark-600 hover:text-primary-600 font-medium transition-colors"
+            >
+              Contact
+            </Link>
           </nav>
 
           {/* Mobile menu button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 rounded-lg hover:bg-dark-100 transition-colors"
+            className="md:hidden p-2 rounded-lg hover:bg-dark-50"
           >
             <svg
               className="w-6 h-6"
@@ -92,35 +81,38 @@ const Header: React.FC = () => {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
+        {/* Mobile menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-dark-100 animate-slide-up">
+          <div className="md:hidden py-4 border-t border-dark-100">
             <nav className="flex flex-col space-y-3">
               <Link
                 to="/"
-                className="text-dark-600 hover:text-primary-600 font-medium transition-colors px-3 py-2 rounded-lg hover:bg-dark-50"
+                className="text-dark-600 hover:text-primary-600 font-medium transition-colors px-2 py-2"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Home
               </Link>
               <Link
                 to="/tools"
-                className="text-dark-600 hover:text-primary-600 font-medium transition-colors px-3 py-2 rounded-lg hover:bg-dark-50"
+                className="text-dark-600 hover:text-primary-600 font-medium transition-colors px-2 py-2"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 All Tools
               </Link>
-              {!isPremium && (
-                <button
-                  onClick={() => {
-                    handleUpgrade();
-                    setMobileMenuOpen(false);
-                  }}
-                  className="bg-gradient-to-r from-amber-400 to-orange-500 text-white px-5 py-2 rounded-lg font-medium text-left"
-                >
-                  ⭐ Upgrade to Premium
-                </button>
-              )}
+              <Link
+                to="/about"
+                className="text-dark-600 hover:text-primary-600 font-medium transition-colors px-2 py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                About
+              </Link>
+              <Link
+                to="/contact"
+                className="text-dark-600 hover:text-primary-600 font-medium transition-colors px-2 py-2"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Contact
+              </Link>
             </nav>
           </div>
         )}
