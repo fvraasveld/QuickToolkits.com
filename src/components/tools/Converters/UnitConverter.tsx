@@ -1,5 +1,13 @@
 import React, { useState, useEffect } from 'react';
 
+type UnitSystem = {
+  [key: string]: {
+    name: string;
+    toBase: (v: number) => number;
+    fromBase: (v: number) => number;
+  };
+};
+
 const UnitConverter: React.FC = () => {
   const [category, setCategory] = useState<'temperature' | 'length' | 'weight'>('temperature');
   const [fromUnit, setFromUnit] = useState('celsius');
@@ -7,29 +15,22 @@ const UnitConverter: React.FC = () => {
   const [fromValue, setFromValue] = useState('');
   const [toValue, setToValue] = useState('');
 
-  const units = {
+  const units: Record<string, UnitSystem> = {
     temperature: {
-      celsius: { name: 'Celsius (°C)', toBase: (v: number) => v, fromBase: (v: number) => v },
-      fahrenheit: { name: 'Fahrenheit (°F)', toBase: (v: number) => (v - 32) * 5/9, fromBase: (v: number) => v * 9/5 + 32 },
-      kelvin: { name: 'Kelvin (K)', toBase: (v: number) => v - 273.15, fromBase: (v: number) => v + 273.15 }
+      celsius: { name: 'Celsius (°C)', toBase: (v) => v, fromBase: (v) => v },
+      fahrenheit: { name: 'Fahrenheit (°F)', toBase: (v) => (v - 32) * 5/9, fromBase: (v) => v * 9/5 + 32 },
+      kelvin: { name: 'Kelvin (K)', toBase: (v) => v - 273.15, fromBase: (v) => v + 273.15 }
     },
     length: {
-      meters: { name: 'Meters (m)', toBase: (v: number) => v, fromBase: (v: number) => v },
-      kilometers: { name: 'Kilometers (km)', toBase: (v: number) => v * 1000, fromBase: (v: number) => v / 1000 },
-      centimeters: { name: 'Centimeters (cm)', toBase: (v: number) => v / 100, fromBase: (v: number) => v * 100 },
-      millimeters: { name: 'Millimeters (mm)', toBase: (v: number) => v / 1000, fromBase: (v: number) => v * 1000 },
-      miles: { name: 'Miles (mi)', toBase: (v: number) => v * 1609.34, fromBase: (v: number) => v / 1609.34 },
-      yards: { name: 'Yards (yd)', toBase: (v: number) => v * 0.9144, fromBase: (v: number) => v / 0.9144 },
-      feet: { name: 'Feet (ft)', toBase: (v: number) => v * 0.3048, fromBase: (v: number) => v / 0.3048 },
-      inches: { name: 'Inches (in)', toBase: (v: number) => v * 0.0254, fromBase: (v: number) => v / 0.0254 }
+      meters: { name: 'Meters (m)', toBase: (v) => v, fromBase: (v) => v },
+      kilometers: { name: 'Kilometers (km)', toBase: (v) => v * 1000, fromBase: (v) => v / 1000 },
+      miles: { name: 'Miles (mi)', toBase: (v) => v * 1609.34, fromBase: (v) => v / 1609.34 },
+      feet: { name: 'Feet (ft)', toBase: (v) => v * 0.3048, fromBase: (v) => v / 0.3048 }
     },
     weight: {
-      kilograms: { name: 'Kilograms (kg)', toBase: (v: number) => v, fromBase: (v: number) => v },
-      grams: { name: 'Grams (g)', toBase: (v: number) => v / 1000, fromBase: (v: number) => v * 1000 },
-      milligrams: { name: 'Milligrams (mg)', toBase: (v: number) => v / 1000000, fromBase: (v: number) => v * 1000000 },
-      pounds: { name: 'Pounds (lb)', toBase: (v: number) => v * 0.453592, fromBase: (v: number) => v / 0.453592 },
-      ounces: { name: 'Ounces (oz)', toBase: (v: number) => v * 0.0283495, fromBase: (v: number) => v / 0.0283495 },
-      tons: { name: 'Metric Tons (t)', toBase: (v: number) => v * 1000, fromBase: (v: number) => v / 1000 }
+      kilograms: { name: 'Kilograms (kg)', toBase: (v) => v, fromBase: (v) => v },
+      grams: { name: 'Grams (g)', toBase: (v) => v / 1000, fromBase: (v) => v * 1000 },
+      pounds: { name: 'Pounds (lb)', toBase: (v) => v * 0.453592, fromBase: (v) => v / 0.453592 }
     }
   };
 
@@ -41,8 +42,8 @@ const UnitConverter: React.FC = () => {
     }
 
     const currentUnits = units[category];
-    const baseValue = currentUnits[fromUnit as keyof typeof currentUnits].toBase(val);
-    const result = currentUnits[toUnit as keyof typeof currentUnits].fromBase(baseValue);
+    const baseValue = currentUnits[fromUnit].toBase(val);
+    const result = currentUnits[toUnit].fromBase(baseValue);
     setToValue(result.toFixed(6).replace(/\.?0+$/, ''));
   };
 
