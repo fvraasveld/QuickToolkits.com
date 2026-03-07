@@ -197,6 +197,17 @@
     "createdAt": "2024-01-01"
   },
   {
+    "id": "bmi-calculator",
+    "name": "BMI Calculator",
+    "category": "Calculator",
+    "description": "Calculate your Body Mass Index and get health category",
+    "free": true,
+    "pagePath": "/tools/bmi-calculator",
+    "icon": "⚖️",
+    "tags": ["bmi", "health", "calculator"],
+    "createdAt": "2024-01-01"
+  },
+  {
     "id": "hashtag-generator",
     "name": "Hashtag Generator",
     "category": "Creative",
