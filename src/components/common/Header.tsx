@@ -22,7 +22,7 @@ const Header: React.FC = () => {
           <Link to="/" className="flex items-center space-x-2 group">
             <div className="w-10 h-10 rounded-xl flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300">
               <img 
-                src="/quicktools.png" 
+                src="/quicktoolkits.png" 
                 alt={SITE_NAME}
                 className="w-10 h-10 object-contain"
               />
