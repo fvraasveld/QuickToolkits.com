@@ -2,7 +2,7 @@ export const SITE_NAME = 'QuickToolkits';
 export const SITE_DESCRIPTION = 'Your all-in-one platform for free online tools and utilities';
 export const SITE_URL = 'https://quicktoolkits.com';
 
-export const CATEGORIES = ['All', 'Text', 'File', 'Developer', 'Calculator', 'Creative'] as const;
+export const CATEGORIES = ['All', 'Text', 'File', 'Developer', 'Calculator', 'Converter', 'Creative', 'Productivity'] as const;
 
 export const STORAGE_KEYS = {
   USER: 'quicktoolkits_user',
@@ -16,7 +16,6 @@ export const AD_SLOTS = {
   TOOL_BOTTOM: 'tool-bottom-banner',
 } as const;
 
-// Additional exports for new pages
 export const SITE_CONFIG = {
   NAME: 'QuickToolkits',
   DOMAIN: 'quicktoolkits.com',
