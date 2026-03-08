@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { SITE_NAME } from '../../utils/constants';
+import { SITE_NAME, CATEGORIES } from '../../utils/constants';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -24,30 +24,17 @@ const Footer: React.FC = () => {
             </p>
           </div>
 
-          {/* Tools */}
+          {/* Tool Categories */}
           <div>
-            <h3 className="font-semibold text-lg mb-4">Tools</h3>
+            <h3 className="font-semibold text-lg mb-4">Tool Categories</h3>
             <ul className="space-y-2 text-dark-300 text-sm">
-              <li>
-                <Link to="/tools" className="hover:text-white transition-colors">
-                  All Tools
-                </Link>
-              </li>
-              <li>
-                <Link to="/?category=Text" className="hover:text-white transition-colors">
-                  Text Tools
-                </Link>
-              </li>
-              <li>
-                <Link to="/?category=Developer" className="hover:text-white transition-colors">
-                  Developer Tools
-                </Link>
-              </li>
-              <li>
-                <Link to="/?category=Calculator" className="hover:text-white transition-colors">
-                  Calculators
-                </Link>
-              </li>
+              {CATEGORIES.filter(cat => cat !== 'All').map((category) => (
+                <li key={category}>
+                  <Link to={`/?category=${category}`} className="hover:text-white transition-colors">
+                    {category} Tools
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -58,6 +45,11 @@ const Footer: React.FC = () => {
               <li>
                 <Link to="/about" className="hover:text-white transition-colors">
                   About Us
+                </Link>
+              </li>
+              <li>
+                <Link to="/faq" className="hover:text-white transition-colors">
+                  FAQ
                 </Link>
               </li>
               <li>
@@ -81,7 +73,7 @@ const Footer: React.FC = () => {
 
         <div className="border-t border-dark-700 mt-8 pt-8 text-center text-dark-400 text-sm">
           <p>
-            &copy; {currentYear} {SITE_NAME}. All rights reserved. Made with ❤️ for developers and creators.
+            &copy; {currentYear} {SITE_NAME}. All rights reserved.
           </p>
         </div>
       </div>
