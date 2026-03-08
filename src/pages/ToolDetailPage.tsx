@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useTools } from '../context/ToolsContext';
 import { useUser } from '../context/UserContext';
@@ -28,6 +28,10 @@ const ToolDetailPage: React.FC = () => {
   const { isPremium } = useUser();
   
   const tool = toolId ? getToolById(toolId) : undefined;
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [toolId]);
 
   if (!tool) {
     return (
