@@ -2,7 +2,7 @@ export const SITE_NAME = 'QuickToolkits';
 export const SITE_DESCRIPTION = 'Your all-in-one platform for free online tools and utilities';
 export const SITE_URL = 'https://quicktoolkits.com';
 
-export const CATEGORIES = ['All', 'Text', 'File', 'Developer', 'Calculator', 'Converter', 'Creative', 'Productivity'] as const;
+export const CATEGORIES = ['All', 'Text', 'Developer', 'Calculator', 'Converter', 'Creative', 'Productivity'] as const;
 
 export const STORAGE_KEYS = {
   USER: 'quicktoolkits_user',
