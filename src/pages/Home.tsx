@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { useTools } from '../context/ToolsContext';
 import SearchBar from '../components/common/SearchBar';
 import ToolCard from '../components/common/ToolCard';
-import AdPlaceholder from '../components/common/AdPlaceholder';
 import { CATEGORIES } from '../utils/constants';
 import { getCategoryColor, getCategoryIcon } from '../utils/helpers';
 import { useSearch } from '../hooks/useSearch';
