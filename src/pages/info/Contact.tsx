@@ -1,11 +1,20 @@
 import React, { useState } from 'react';
-import { SITE_CONFIG } from '../../utils/constants';
 
 const Contact: React.FC = () => {
   const [submitted, setSubmitted] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Create mailto link (email hidden from users)
+    const mailtoLink = `mailto:fvraasveld@gmail.com?subject=Contact from ${formData.name}&body=${encodeURIComponent(formData.message)}%0A%0AFrom: ${formData.email}`;
+    window.location.href = mailtoLink;
+    
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 3000);
   };
@@ -17,17 +26,12 @@ const Contact: React.FC = () => {
       <div className="grid md:grid-cols-2 gap-8">
         <div>
           <h2 className="text-2xl font-bold mb-4">Get in Touch</h2>
-          <div className="space-y-4">
-            <div>
-              <h3 className="font-semibold mb-1">Email</h3>
-              <a href={`mailto:${SITE_CONFIG.SUPPORT_EMAIL}`} className="text-blue-600 hover:underline">
-                {SITE_CONFIG.SUPPORT_EMAIL}
-              </a>
-            </div>
-            <div>
-              <h3 className="font-semibold mb-1">Response Time</h3>
-              <p className="text-gray-600">We typically respond within 24-48 hours</p>
-            </div>
+          <p className="text-gray-600 mb-4">
+            Have questions or feedback? We'd love to hear from you! Fill out the form and we'll get back to you as soon as possible.
+          </p>
+          <div className="space-y-3 text-gray-600">
+            <p>📧 We typically respond within 24-48 hours</p>
+            <p>🌍 Available worldwide</p>
           </div>
         </div>
 
@@ -38,6 +42,8 @@ const Contact: React.FC = () => {
               <input
                 type="text"
                 required
+                value={formData.name}
+                onChange={(e) => setFormData({...formData, name: e.target.value})}
                 className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
               />
             </div>
@@ -46,6 +52,8 @@ const Contact: React.FC = () => {
               <input
                 type="email"
                 required
+                value={formData.email}
+                onChange={(e) => setFormData({...formData, email: e.target.value})}
                 className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
               />
             </div>
@@ -54,6 +62,8 @@ const Contact: React.FC = () => {
               <textarea
                 required
                 rows={5}
+                value={formData.message}
+                onChange={(e) => setFormData({...formData, message: e.target.value})}
                 className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
               />
             </div>
@@ -65,7 +75,7 @@ const Contact: React.FC = () => {
             </button>
             {submitted && (
               <div className="p-4 bg-green-50 border border-green-200 rounded-lg text-green-800">
-                Thank you! We'll get back to you soon.
+                Opening your email client...
               </div>
             )}
           </form>
