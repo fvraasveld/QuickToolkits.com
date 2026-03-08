@@ -3,23 +3,49 @@ import { useParams, Link } from 'react-router-dom';
 import { useTools } from '../context/ToolsContext';
 import { useUser } from '../context/UserContext';
 import ToolPlaceholder from '../components/common/ToolPlaceholder';
-import JSONToCSV from '../components/tools/DeveloperTools/JSONToCSV';
+
+// Text Tools
 import WordCounter from '../components/tools/TextTools/WordCounter';
 import CaseConverter from '../components/tools/TextTools/CaseConverter';
 import RemoveDuplicateLines from '../components/tools/TextTools/RemoveDuplicateLines';
 import SlugGenerator from '../components/tools/TextTools/SlugGenerator';
 import LoremIpsumGenerator from '../components/tools/TextTools/LoremIpsumGenerator';
 import WhitespaceRemover from '../components/tools/TextTools/WhitespaceRemover';
+import TextDiff from '../components/tools/TextTools/TextDiff';
+import LineSorter from '../components/tools/TextTools/LineSorter';
+import CharacterCounter from '../components/tools/TextTools/CharacterCounter';
+
+// Developer Tools
+import JSONToCSV from '../components/tools/DeveloperTools/JSONToCSV';
 import Base64Tool from '../components/tools/DeveloperTools/Base64Tool';
 import UUIDGenerator from '../components/tools/DeveloperTools/UUIDGenerator';
+import URLEncoder from '../components/tools/DeveloperTools/URLEncoder';
+import HTMLEncoder from '../components/tools/DeveloperTools/HTMLEncoder';
+import JSONFormatter from '../components/tools/DeveloperTools/JSONFormatter';
+
+// Calculators
 import BMICalculator from '../components/tools/Calculators/BMICalculator';
 import TipCalculator from '../components/tools/Calculators/TipCalculator';
 import PercentageCalculator from '../components/tools/Calculators/PercentageCalculator';
 import LoanCalculator from '../components/tools/Calculators/LoanCalculator';
-import PasswordGenerator from '../components/tools/Productivity/PasswordGenerator';
+import AgeCalculator from '../components/tools/Calculators/AgeCalculator';
+
+// Converters
 import UnitConverter from '../components/tools/Converters/UnitConverter';
+import RGBToHex from '../components/tools/Converters/RGBToHex';
+import TimestampConverter from '../components/tools/Converters/TimestampConverter';
+import MarkdownToHTML from '../components/tools/Converters/MarkdownToHTML';
+
+// Productivity
+import PasswordGenerator from '../components/tools/Productivity/PasswordGenerator';
+import InvoiceGenerator from '../components/tools/Productivity/InvoiceGenerator';
+
+// Creative
 import HashtagGenerator from '../components/tools/Creative/HashtagGenerator';
 import RandomNameGenerator from '../components/tools/Creative/RandomNameGenerator';
+import QRCodeGenerator from '../components/tools/Creative/QRCodeGenerator';
+import ColorPicker from '../components/tools/Creative/ColorPicker';
+
 import { getCategoryColor } from '../utils/helpers';
 
 const ToolDetailPage: React.FC = () => {
@@ -81,6 +107,7 @@ const ToolDetailPage: React.FC = () => {
 
   const renderToolComponent = () => {
     switch (tool.id) {
+      // Text Tools
       case 'word-counter':
         return <WordCounter />;
       case 'case-converter':
@@ -93,12 +120,28 @@ const ToolDetailPage: React.FC = () => {
         return <LoremIpsumGenerator />;
       case 'whitespace-remover':
         return <WhitespaceRemover />;
+      case 'text-diff':
+        return <TextDiff />;
+      case 'line-sorter':
+        return <LineSorter />;
+      case 'character-counter':
+        return <CharacterCounter />;
+      
+      // Developer Tools
       case 'json-to-csv':
         return <JSONToCSV />;
       case 'base64-encoder':
         return <Base64Tool />;
       case 'uuid-generator':
         return <UUIDGenerator />;
+      case 'url-encoder':
+        return <URLEncoder />;
+      case 'html-encoder':
+        return <HTMLEncoder />;
+      case 'json-formatter':
+        return <JSONFormatter />;
+      
+      // Calculators
       case 'bmi-calculator':
         return <BMICalculator />;
       case 'tip-calculator':
@@ -107,14 +150,35 @@ const ToolDetailPage: React.FC = () => {
         return <PercentageCalculator />;
       case 'loan-calculator':
         return <LoanCalculator />;
-      case 'password-generator':
-        return <PasswordGenerator />;
+      case 'age-calculator':
+        return <AgeCalculator />;
+      
+      // Converters
       case 'unit-converter':
         return <UnitConverter />;
+      case 'rgb-to-hex':
+        return <RGBToHex />;
+      case 'timestamp-converter':
+        return <TimestampConverter />;
+      case 'markdown-to-html':
+        return <MarkdownToHTML />;
+      
+      // Productivity
+      case 'password-generator':
+        return <PasswordGenerator />;
+      case 'invoice-generator':
+        return <InvoiceGenerator />;
+      
+      // Creative
       case 'hashtag-generator':
         return <HashtagGenerator />;
       case 'random-name-generator':
         return <RandomNameGenerator />;
+      case 'qr-code-generator':
+        return <QRCodeGenerator />;
+      case 'color-picker':
+        return <ColorPicker />;
+      
       default:
         return (
           <ToolPlaceholder
