@@ -16,12 +16,17 @@ const Home: React.FC = () => {
 
   useEffect(() => {
     setSelectedCategory(categoryFromUrl);
-    // Scroll to tools section when category changes
     if (categoryFromUrl !== 'All') {
       setTimeout(() => {
         const toolsSection = document.getElementById('tools-section');
         if (toolsSection) {
-          toolsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          const headerOffset = 80;
+          const elementPosition = toolsSection.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+          });
         }
       }, 100);
     }
@@ -43,7 +48,6 @@ const Home: React.FC = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary-100 via-orange-50 to-yellow-50 opacity-50"></div>
         
@@ -89,7 +93,6 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Categories */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="flex flex-wrap gap-3 justify-center">
           {categoryStats.map(cat => (
@@ -109,7 +112,6 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Tools Grid - ADD ID HERE */}
       <section id="tools-section" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
         {displayTools.length > 0 ? (
           <>
@@ -156,7 +158,6 @@ const Home: React.FC = () => {
         )}
       </section>
 
-      {/* CTA Section */}
       <section className="bg-gradient-to-r from-primary-500 to-orange-500 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
           <h2 className="text-3xl md:text-4xl font-display font-bold mb-4">
