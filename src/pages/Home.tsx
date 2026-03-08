@@ -76,11 +76,6 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Ad Placeholder */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <AdPlaceholder slot="header-banner" height="90px" />
-      </div>
-
       {/* Categories */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="flex flex-wrap gap-3 justify-center">
