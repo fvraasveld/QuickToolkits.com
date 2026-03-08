@@ -115,6 +115,17 @@
     "createdAt": "2024-01-01"
   },
   {
+    "id": "csv-to-json",
+    "name": "CSV to JSON",
+    "category": "Converter",
+    "description": "Convert CSV data to JSON format",
+    "free": true,
+    "pagePath": "/tools/csv-to-json",
+    "icon": "📋",
+    "tags": ["csv", "json", "convert"],
+    "createdAt": "2024-01-01"
+  },
+  {
     "id": "base64-encoder",
     "name": "Base64 Encoder/Decoder",
     "category": "Developer",
@@ -215,6 +226,83 @@
     "createdAt": "2024-01-01"
   },
   {
+    "id": "image-resizer",
+    "name": "Image Resizer",
+    "category": "Converter",
+    "description": "Resize images to custom dimensions in your browser",
+    "free": true,
+    "pagePath": "/tools/image-resizer",
+    "icon": "📐",
+    "tags": ["image", "resize", "dimensions"],
+    "createdAt": "2024-01-01"
+  },
+  {
+    "id": "image-format-converter",
+    "name": "Image Format Converter",
+    "category": "Converter",
+    "description": "Convert images between PNG, JPG, and WEBP formats",
+    "free": true,
+    "pagePath": "/tools/image-format-converter",
+    "icon": "🖼️",
+    "tags": ["image", "convert", "format"],
+    "createdAt": "2024-01-01"
+  },
+  {
+    "id": "image-compressor",
+    "name": "Image Compressor",
+    "category": "Converter",
+    "description": "Compress images to reduce file size without losing quality",
+    "free": true,
+    "pagePath": "/tools/image-compressor",
+    "icon": "🗜️",
+    "tags": ["image", "compress", "optimize"],
+    "createdAt": "2024-01-01"
+  },
+  {
+    "id": "text-to-pdf",
+    "name": "Text to PDF",
+    "category": "Converter",
+    "description": "Convert plain text to PDF documents",
+    "free": true,
+    "pagePath": "/tools/text-to-pdf",
+    "icon": "📄",
+    "tags": ["text", "pdf", "convert"],
+    "createdAt": "2024-01-01"
+  },
+  {
+    "id": "image-to-data-url",
+    "name": "Image to Data URL",
+    "category": "Converter",
+    "description": "Convert images to Base64 Data URLs for embedding",
+    "free": true,
+    "pagePath": "/tools/image-to-data-url",
+    "icon": "🔗",
+    "tags": ["image", "base64", "dataurl"],
+    "createdAt": "2024-01-01"
+  },
+  {
+    "id": "css-units-converter",
+    "name": "CSS Units Converter",
+    "category": "Converter",
+    "description": "Convert between px, rem, em, pt, and percentage units",
+    "free": true,
+    "pagePath": "/tools/css-units-converter",
+    "icon": "📏",
+    "tags": ["css", "units", "convert"],
+    "createdAt": "2024-01-01"
+  },
+  {
+    "id": "color-name-finder",
+    "name": "Color Name Finder",
+    "category": "Converter",
+    "description": "Find the closest color name for any HEX color code",
+    "free": true,
+    "pagePath": "/tools/color-name-finder",
+    "icon": "🎨",
+    "tags": ["color", "name", "finder"],
+    "createdAt": "2024-01-01"
+  },
+  {
     "id": "bmi-calculator",
     "name": "BMI Calculator",
     "category": "Calculator",
@@ -281,6 +369,17 @@
     "createdAt": "2024-01-01"
   },
   {
+    "id": "invoice-generator",
+    "name": "Invoice Generator",
+    "category": "Productivity",
+    "description": "Create professional invoices quickly and easily",
+    "free": true,
+    "pagePath": "/tools/invoice-generator",
+    "icon": "🧾",
+    "tags": ["invoice", "business", "billing"],
+    "createdAt": "2024-01-01"
+  },
+  {
     "id": "qr-code-generator",
     "name": "QR Code Generator",
     "category": "Creative",
@@ -326,25 +425,14 @@
     "createdAt": "2024-01-01"
   },
   {
-    "id": "invoice-generator",
-    "name": "Invoice Generator",
-    "category": "Productivity",
-    "description": "Create professional invoices quickly and easily",
+    "id": "html-table-generator",
+    "name": "HTML Table Generator",
+    "category": "Creative",
+    "description": "Generate HTML tables with custom rows, columns, and styling",
     "free": true,
-    "pagePath": "/tools/invoice-generator",
-    "icon": "🧾",
-    "tags": ["invoice", "business", "billing"],
-    "createdAt": "2024-01-01"
-  },
-  {
-    "id": "resume-builder",
-    "name": "Resume Builder",
-    "category": "Productivity",
-    "description": "Build professional resumes with customizable templates",
-    "free": true,
-    "pagePath": "/tools/resume-builder",
-    "icon": "📄",
-    "tags": ["resume", "cv", "job"],
+    "pagePath": "/tools/html-table-generator",
+    "icon": "📊",
+    "tags": ["html", "table", "generator"],
     "createdAt": "2024-01-01"
   }
 ]
