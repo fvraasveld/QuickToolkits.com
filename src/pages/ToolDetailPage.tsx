@@ -35,6 +35,14 @@ import UnitConverter from '../components/tools/Converters/UnitConverter';
 import RGBToHex from '../components/tools/Converters/RGBToHex';
 import TimestampConverter from '../components/tools/Converters/TimestampConverter';
 import MarkdownToHTML from '../components/tools/Converters/MarkdownToHTML';
+import CSVToJSON from '../components/tools/Converters/CSVToJSON';
+import ImageResizer from '../components/tools/Converters/ImageResizer';
+import ImageFormatConverter from '../components/tools/Converters/ImageFormatConverter';
+import ImageCompressor from '../components/tools/Converters/ImageCompressor';
+import TextToPDF from '../components/tools/Converters/TextToPDF';
+import ImageToDataURL from '../components/tools/Converters/ImageToDataURL';
+import CSSUnitsConverter from '../components/tools/Converters/CSSUnitsConverter';
+import ColorNameFinder from '../components/tools/Converters/ColorNameFinder';
 
 // Productivity
 import PasswordGenerator from '../components/tools/Productivity/PasswordGenerator';
@@ -45,6 +53,7 @@ import HashtagGenerator from '../components/tools/Creative/HashtagGenerator';
 import RandomNameGenerator from '../components/tools/Creative/RandomNameGenerator';
 import QRCodeGenerator from '../components/tools/Creative/QRCodeGenerator';
 import ColorPicker from '../components/tools/Creative/ColorPicker';
+import HTMLTableGenerator from '../components/tools/Creative/HTMLTableGenerator';
 
 import { getCategoryColor } from '../utils/helpers';
 
@@ -162,6 +171,22 @@ const ToolDetailPage: React.FC = () => {
         return <TimestampConverter />;
       case 'markdown-to-html':
         return <MarkdownToHTML />;
+      case 'csv-to-json':
+        return <CSVToJSON />;
+      case 'image-resizer':
+        return <ImageResizer />;
+      case 'image-format-converter':
+        return <ImageFormatConverter />;
+      case 'image-compressor':
+        return <ImageCompressor />;
+      case 'text-to-pdf':
+        return <TextToPDF />;
+      case 'image-to-data-url':
+        return <ImageToDataURL />;
+      case 'css-units-converter':
+        return <CSSUnitsConverter />;
+      case 'color-name-finder':
+        return <ColorNameFinder />;
       
       // Productivity
       case 'password-generator':
@@ -178,6 +203,8 @@ const ToolDetailPage: React.FC = () => {
         return <QRCodeGenerator />;
       case 'color-picker':
         return <ColorPicker />;
+      case 'html-table-generator':
+        return <HTMLTableGenerator />;
       
       default:
         return (
