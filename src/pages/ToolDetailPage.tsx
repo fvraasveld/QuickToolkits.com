@@ -196,10 +196,6 @@ const ToolDetailPage: React.FC = () => {
         {renderToolComponent()}
       </section>
 
-      {/* Ad Placeholder at bottom */}
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pb-12">
-        <AdPlaceholder slot="tool-bottom-banner" height="120px" />
-      </div>
     </div>
   );
 };
