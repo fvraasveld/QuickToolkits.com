@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 const ColorPicker: React.FC = () => {
   const [color, setColor] = useState('#3B82F6');
