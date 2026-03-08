@@ -67,8 +67,9 @@
   .glass {
     @apply bg-white/80 backdrop-blur-sm;
   }
+}
 
- @keyframes fadeIn {
+@keyframes fadeIn {
   from {
     opacity: 0;
     transform: translateY(-10px);
