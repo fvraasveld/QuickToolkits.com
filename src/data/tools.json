@@ -70,9 +70,42 @@
     "createdAt": "2024-01-01"
   },
   {
+    "id": "text-diff",
+    "name": "Text Diff Checker",
+    "category": "Text",
+    "description": "Compare two texts and highlight the differences",
+    "free": true,
+    "pagePath": "/tools/text-diff",
+    "icon": "🔍",
+    "tags": ["text", "compare", "diff"],
+    "createdAt": "2024-01-01"
+  },
+  {
+    "id": "line-sorter",
+    "name": "Line Sorter",
+    "category": "Text",
+    "description": "Sort lines alphabetically or numerically",
+    "free": true,
+    "pagePath": "/tools/line-sorter",
+    "icon": "🔢",
+    "tags": ["text", "sort", "alphabetical"],
+    "createdAt": "2024-01-01"
+  },
+  {
+    "id": "character-counter",
+    "name": "Character Frequency Counter",
+    "category": "Text",
+    "description": "Count frequency of each character in your text",
+    "free": true,
+    "pagePath": "/tools/character-counter",
+    "icon": "🔠",
+    "tags": ["text", "character", "frequency"],
+    "createdAt": "2024-01-01"
+  },
+  {
     "id": "json-to-csv",
     "name": "JSON to CSV",
-    "category": "Developer",
+    "category": "Converter",
     "description": "Convert JSON data to CSV format for Excel and spreadsheets",
     "exampleInput": "[{\"name\":\"John\",\"age\":30},{\"name\":\"Jane\",\"age\":25}]",
     "free": true,
@@ -102,6 +135,83 @@
     "pagePath": "/tools/uuid-generator",
     "icon": "🆔",
     "tags": ["uuid", "id", "generate"],
+    "createdAt": "2024-01-01"
+  },
+  {
+    "id": "url-encoder",
+    "name": "URL Encoder/Decoder",
+    "category": "Developer",
+    "description": "Encode and decode URL strings for safe transmission",
+    "free": true,
+    "pagePath": "/tools/url-encoder",
+    "icon": "🌐",
+    "tags": ["url", "encode", "decode"],
+    "createdAt": "2024-01-01"
+  },
+  {
+    "id": "html-encoder",
+    "name": "HTML Encoder/Decoder",
+    "category": "Developer",
+    "description": "Encode and decode HTML entities",
+    "free": true,
+    "pagePath": "/tools/html-encoder",
+    "icon": "📝",
+    "tags": ["html", "encode", "entities"],
+    "createdAt": "2024-01-01"
+  },
+  {
+    "id": "json-formatter",
+    "name": "JSON Formatter",
+    "category": "Developer",
+    "description": "Format and beautify JSON data with proper indentation",
+    "free": true,
+    "pagePath": "/tools/json-formatter",
+    "icon": "{ }",
+    "tags": ["json", "format", "beautify"],
+    "createdAt": "2024-01-01"
+  },
+  {
+    "id": "markdown-to-html",
+    "name": "Markdown to HTML",
+    "category": "Converter",
+    "description": "Convert Markdown syntax to HTML code",
+    "free": true,
+    "pagePath": "/tools/markdown-to-html",
+    "icon": "📑",
+    "tags": ["markdown", "html", "convert"],
+    "createdAt": "2024-01-01"
+  },
+  {
+    "id": "rgb-to-hex",
+    "name": "RGB to HEX Converter",
+    "category": "Converter",
+    "description": "Convert RGB color values to HEX and vice versa",
+    "free": true,
+    "pagePath": "/tools/rgb-to-hex",
+    "icon": "🎨",
+    "tags": ["color", "rgb", "hex"],
+    "createdAt": "2024-01-01"
+  },
+  {
+    "id": "timestamp-converter",
+    "name": "Timestamp Converter",
+    "category": "Converter",
+    "description": "Convert between Unix timestamp and human-readable dates",
+    "free": true,
+    "pagePath": "/tools/timestamp-converter",
+    "icon": "⏰",
+    "tags": ["time", "unix", "date"],
+    "createdAt": "2024-01-01"
+  },
+  {
+    "id": "unit-converter",
+    "name": "Unit Converter",
+    "category": "Calculator",
+    "description": "Convert between different units of measurement (temperature, length, weight)",
+    "free": true,
+    "pagePath": "/tools/unit-converter",
+    "icon": "🔄",
+    "tags": ["convert", "units", "measurement"],
     "createdAt": "2024-01-01"
   },
   {
@@ -139,7 +249,7 @@
   },
   {
     "id": "tip-calculator",
-    "name": "Tip & Bill Split Calculator",
+    "name": "Tip Calculator",
     "category": "Calculator",
     "description": "Calculate tips and split bills among multiple people",
     "free": true,
@@ -149,14 +259,14 @@
     "createdAt": "2024-01-01"
   },
   {
-    "id": "unit-converter",
-    "name": "Unit Converter",
+    "id": "age-calculator",
+    "name": "Age Calculator",
     "category": "Calculator",
-    "description": "Convert between different units of measurement (temperature, length, weight)",
+    "description": "Calculate age in years, months, and days from birth date",
     "free": true,
-    "pagePath": "/tools/unit-converter",
-    "icon": "🔄",
-    "tags": ["convert", "units", "measurement"],
+    "pagePath": "/tools/age-calculator",
+    "icon": "🎂",
+    "tags": ["age", "birthday", "date"],
     "createdAt": "2024-01-01"
   },
   {
@@ -168,6 +278,28 @@
     "pagePath": "/tools/password-generator",
     "icon": "🔒",
     "tags": ["password", "security", "generate"],
+    "createdAt": "2024-01-01"
+  },
+  {
+    "id": "qr-code-generator",
+    "name": "QR Code Generator",
+    "category": "Creative",
+    "description": "Generate QR codes for URLs, text, or contact information",
+    "free": true,
+    "pagePath": "/tools/qr-code-generator",
+    "icon": "📱",
+    "tags": ["qr", "code", "generator"],
+    "createdAt": "2024-01-01"
+  },
+  {
+    "id": "color-picker",
+    "name": "Color Picker",
+    "category": "Creative",
+    "description": "Pick colors and get HEX, RGB, and HSL values",
+    "free": true,
+    "pagePath": "/tools/color-picker",
+    "icon": "🎨",
+    "tags": ["color", "picker", "palette"],
     "createdAt": "2024-01-01"
   },
   {
@@ -191,6 +323,28 @@
     "pagePath": "/tools/random-name-generator",
     "icon": "🎲",
     "tags": ["name", "random", "generate"],
+    "createdAt": "2024-01-01"
+  },
+  {
+    "id": "invoice-generator",
+    "name": "Invoice Generator",
+    "category": "Productivity",
+    "description": "Create professional invoices quickly and easily",
+    "free": true,
+    "pagePath": "/tools/invoice-generator",
+    "icon": "🧾",
+    "tags": ["invoice", "business", "billing"],
+    "createdAt": "2024-01-01"
+  },
+  {
+    "id": "resume-builder",
+    "name": "Resume Builder",
+    "category": "Productivity",
+    "description": "Build professional resumes with customizable templates",
+    "free": true,
+    "pagePath": "/tools/resume-builder",
+    "icon": "📄",
+    "tags": ["resume", "cv", "job"],
     "createdAt": "2024-01-01"
   }
 ]
