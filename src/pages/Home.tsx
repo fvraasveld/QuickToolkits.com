@@ -1,5 +1,5 @@
-import React, { useState, useMemo } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useMemo, useEffect } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
 import { useTools } from '../context/ToolsContext';
 import SearchBar from '../components/common/SearchBar';
 import ToolCard from '../components/common/ToolCard';
@@ -10,7 +10,22 @@ import { useSearch } from '../hooks/useSearch';
 const Home: React.FC = () => {
   const { tools } = useTools();
   const { searchQuery, setSearchQuery, filteredTools } = useSearch(tools);
-  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [searchParams] = useSearchParams();
+  const categoryFromUrl = searchParams.get('category') || 'All';
+  const [selectedCategory, setSelectedCategory] = useState(categoryFromUrl);
+
+  useEffect(() => {
+    setSelectedCategory(categoryFromUrl);
+    // Scroll to tools section when category changes
+    if (categoryFromUrl !== 'All') {
+      setTimeout(() => {
+        const toolsSection = document.getElementById('tools-section');
+        if (toolsSection) {
+          toolsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+    }
+  }, [categoryFromUrl]);
 
   const displayTools = useMemo(() => {
     if (selectedCategory === 'All') {
@@ -63,7 +78,6 @@ const Home: React.FC = () => {
               </span>
             </div>
 
-            {/* Search Bar */}
             <div className="pt-8 animate-slide-up" style={{ animationDelay: '0.2s' }}>
               <SearchBar
                 value={searchQuery}
@@ -95,8 +109,8 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* Tools Grid */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+      {/* Tools Grid - ADD ID HERE */}
+      <section id="tools-section" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
         {displayTools.length > 0 ? (
           <>
             <div className="mb-6">
