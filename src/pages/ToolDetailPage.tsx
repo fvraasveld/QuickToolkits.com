@@ -2,7 +2,6 @@ import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useTools } from '../context/ToolsContext';
 import { useUser } from '../context/UserContext';
-import AdPlaceholder from '../components/common/AdPlaceholder';
 import ToolPlaceholder from '../components/common/ToolPlaceholder';
 import JSONToCSV from '../components/tools/DeveloperTools/JSONToCSV';
 import WordCounter from '../components/tools/TextTools/WordCounter';
@@ -47,7 +46,6 @@ const ToolDetailPage: React.FC = () => {
     );
   }
 
-  // Check if premium tool and user doesn't have premium
   if (tool.premium && !isPremium) {
     return (
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
@@ -58,8 +56,7 @@ const ToolDetailPage: React.FC = () => {
               Premium Tool
             </h1>
             <p className="text-xl text-dark-600 mb-8">
-              {tool.name} is a premium tool. Upgrade to access this and all other premium
-              features!
+              {tool.name} is a premium tool. Upgrade to access this and all other premium features!
             </p>
             <div className="space-y-4">
               <button className="btn-primary text-lg">
@@ -78,10 +75,8 @@ const ToolDetailPage: React.FC = () => {
     );
   }
 
-  // Render the appropriate tool component
   const renderToolComponent = () => {
     switch (tool.id) {
-      // Text Tools
       case 'word-counter':
         return <WordCounter />;
       case 'case-converter':
@@ -94,16 +89,12 @@ const ToolDetailPage: React.FC = () => {
         return <LoremIpsumGenerator />;
       case 'whitespace-remover':
         return <WhitespaceRemover />;
-      
-      // Developer Tools
       case 'json-to-csv':
         return <JSONToCSV />;
       case 'base64-encoder':
         return <Base64Tool />;
       case 'uuid-generator':
         return <UUIDGenerator />;
-      
-      // Calculators
       case 'bmi-calculator':
         return <BMICalculator />;
       case 'tip-calculator':
@@ -112,21 +103,14 @@ const ToolDetailPage: React.FC = () => {
         return <PercentageCalculator />;
       case 'loan-calculator':
         return <LoanCalculator />;
-      
-      // Productivity
       case 'password-generator':
         return <PasswordGenerator />;
-      
-      // Converters
       case 'unit-converter':
         return <UnitConverter />;
-      
-      // Creative
       case 'hashtag-generator':
         return <HashtagGenerator />;
       case 'random-name-generator':
         return <RandomNameGenerator />;
-      
       default:
         return (
           <ToolPlaceholder
@@ -141,25 +125,14 @@ const ToolDetailPage: React.FC = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Tool Header */}
       <section className="bg-gradient-to-br from-primary-50 via-orange-50 to-yellow-50 border-b border-dark-100">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <Link
             to="/"
             className="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium mb-6 transition-colors"
           >
-            <svg
-              className="w-5 h-5 mr-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M10 19l-7-7m0 0l7-7m-7 7h18"
-              />
+            <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
             </svg>
             Back to Tools
           </Link>
@@ -191,11 +164,9 @@ const ToolDetailPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Tool Content */}
       <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {renderToolComponent()}
       </section>
-
     </div>
   );
 };
