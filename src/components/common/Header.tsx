@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { SITE_NAME } from '../../utils/constants';
+import { SITE_NAME, CATEGORIES } from '../../utils/constants';
 
 const Header: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [toolsDropdownOpen, setToolsDropdownOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-50 glass border-b border-dark-100 shadow-sm">
@@ -31,12 +32,36 @@ const Header: React.FC = () => {
             >
               Home
             </Link>
-            <Link
-              to="/tools"
-              className="text-dark-600 hover:text-primary-600 font-medium transition-colors"
+            
+            {/* All Tools Dropdown */}
+            <div 
+              className="relative"
+              onMouseEnter={() => setToolsDropdownOpen(true)}
+              onMouseLeave={() => setToolsDropdownOpen(false)}
             >
-              All Tools
-            </Link>
+              <button className="text-dark-600 hover:text-primary-600 font-medium transition-colors flex items-center gap-1">
+                All Tools
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              
+              {toolsDropdownOpen && (
+                <div className="absolute left-0 mt-2 w-48 bg-white rounded-lg shadow-lg border border-gray-200 py-2">
+                  {CATEGORIES.filter(cat => cat !== 'All').map((category) => (
+                    <Link
+                      key={category}
+                      to={`/?category=${category}`}
+                      className="block px-4 py-2 text-dark-600 hover:bg-primary-50 hover:text-primary-600 transition-colors"
+                      onClick={() => setToolsDropdownOpen(false)}
+                    >
+                      {category}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+
             <Link
               to="/about"
               className="text-dark-600 hover:text-primary-600 font-medium transition-colors"
@@ -92,13 +117,16 @@ const Header: React.FC = () => {
               >
                 Home
               </Link>
-              <Link
-                to="/tools"
-                className="text-dark-600 hover:text-primary-600 font-medium transition-colors px-2 py-2"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                All Tools
-              </Link>
+              {CATEGORIES.filter(cat => cat !== 'All').map((category) => (
+                <Link
+                  key={category}
+                  to={`/?category=${category}`}
+                  className="text-dark-600 hover:text-primary-600 font-medium transition-colors px-2 py-2"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  {category}
+                </Link>
+              ))}
               <Link
                 to="/about"
                 className="text-dark-600 hover:text-primary-600 font-medium transition-colors px-2 py-2"
