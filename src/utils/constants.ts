@@ -2,12 +2,11 @@ export const SITE_NAME = 'QuickToolkits';
 export const SITE_DESCRIPTION = 'Your all-in-one platform for free online tools and utilities';
 export const SITE_URL = 'https://quicktoolkits.com';
 
-export const CATEGORIES = ['All', 'Text', 'Developer', 'Calculator', 'Converter', 'Creative', 'Productivity'] as const;
+export const CATEGORIES = ['All', 'Text', 'Developer', 'Calculator', 'Converter', 'Creative', 'Productivity', 'Financial'] as const;
 
 export const STORAGE_KEYS = {
   USER: 'quicktoolkits_user',
   HISTORY: 'quicktoolkits_history',
-  FAVORITES: 'quicktoolkits_favorites',
 } as const;
 
 export const AD_SLOTS = {
@@ -22,9 +21,6 @@ export const SITE_CONFIG = {
   EMAIL: 'support@quicktoolkits.com',
   SUPPORT_EMAIL: 'support@quicktoolkits.com',
   TWITTER: '@quicktoolkits',
-};
-
-export const PRICING = {
-  REMOVE_ADS_MONTHLY: 2.99,
-  PREMIUM_MONTHLY: 4.99,
+  SUPPORT_LINK: 'https://buymeacoffee.com/quicktoolkits', // Update this with your actual Buy Me a Coffee link
+  KOFI_LINK: 'https://ko-fi.com/quicktoolkits', // Or use Ko-fi if you prefer
 };
