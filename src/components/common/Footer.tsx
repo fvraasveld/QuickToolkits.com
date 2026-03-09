@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { SITE_NAME, CATEGORIES } from '../../utils/constants';
+import { SITE_NAME, CATEGORIES, SITE_CONFIG } from '../../utils/constants';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="bg-dark-900 text-white mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="col-span-1">
             <div className="flex items-center space-x-2 mb-4">
@@ -19,9 +19,19 @@ const Footer: React.FC = () => {
               />
               <span className="text-xl font-display font-bold">{SITE_NAME}</span>
             </div>
-            <p className="text-dark-300 text-sm">
+            <p className="text-dark-300 text-sm mb-4">
               Your all-in-one platform for free online tools and utilities.
             </p>
+            {/* Support Button */}
+            <a
+              href={SITE_CONFIG.SUPPORT_LINK}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center space-x-2 bg-yellow-500 hover:bg-yellow-600 text-dark-900 font-semibold px-4 py-2 rounded-lg transition-colors duration-200"
+            >
+              <span>☕</span>
+              <span>Support Us</span>
+            </a>
           </div>
 
           {/* Tool Categories */}
@@ -38,9 +48,9 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Company */}
+          {/* Resources */}
           <div>
-            <h3 className="font-semibold text-lg mb-4">Company</h3>
+            <h3 className="font-semibold text-lg mb-4">Resources</h3>
             <ul className="space-y-2 text-dark-300 text-sm">
               <li>
                 <Link to="/about" className="hover:text-white transition-colors">
@@ -57,6 +67,13 @@ const Footer: React.FC = () => {
                   Contact
                 </Link>
               </li>
+            </ul>
+          </div>
+
+          {/* Legal */}
+          <div>
+            <h3 className="font-semibold text-lg mb-4">Legal</h3>
+            <ul className="space-y-2 text-dark-300 text-sm">
               <li>
                 <Link to="/privacy" className="hover:text-white transition-colors">
                   Privacy Policy
@@ -73,7 +90,7 @@ const Footer: React.FC = () => {
 
         <div className="border-t border-dark-700 mt-8 pt-8 text-center text-dark-400 text-sm">
           <p>
-            &copy; {currentYear} {SITE_NAME}. All rights reserved.
+            &copy; {currentYear} {SITE_NAME}. Made with ❤️ for the internet.
           </p>
         </div>
       </div>
