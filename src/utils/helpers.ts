@@ -58,52 +58,73 @@ export const getToolById = (tools: Tool[], id: string): Tool | undefined => {
 };
 
 /**
- * Filter tools by category
+ * Filter tools by category - NOW SUPPORTS MULTIPLE CATEGORIES
  */
 export const filterToolsByCategory = (tools: Tool[], category: string): Tool[] => {
   if (category === 'All') return tools;
-  return tools.filter(tool => tool.category === category);
+  return tools.filter(tool => {
+    // Check primary category
+    if (tool.category === category) return true;
+    // Check additional categories
+    if (tool.categories && tool.categories.includes(category as any)) return true;
+    return false;
+  });
 };
 
 /**
- * Search tools by query
+ * Search tools by query - NOW SEARCHES MULTIPLE CATEGORIES
  */
 export const searchTools = (tools: Tool[], query: string): Tool[] => {
   const lowerQuery = query.toLowerCase().trim();
   if (!lowerQuery) return tools;
   
-  return tools.filter(tool => 
-    tool.name.toLowerCase().includes(lowerQuery) ||
-    tool.description.toLowerCase().includes(lowerQuery) ||
-    tool.category.toLowerCase().includes(lowerQuery) ||
-    tool.tags?.some(tag => tag.toLowerCase().includes(lowerQuery))
-  );
+  return tools.filter(tool => {
+    // Search in name, description, tags
+    const matchesBasic = 
+      tool.name.toLowerCase().includes(lowerQuery) ||
+      tool.description.toLowerCase().includes(lowerQuery) ||
+      tool.category.toLowerCase().includes(lowerQuery) ||
+      tool.tags?.some(tag => tag.toLowerCase().includes(lowerQuery));
+    
+    // Also search in additional categories
+    const matchesCategories = tool.categories?.some(cat => 
+      cat.toLowerCase().includes(lowerQuery)
+    );
+    
+    return matchesBasic || matchesCategories;
+  });
 };
 
 /**
- * Get category color
+ * Get category color - UPDATED WITH ALL CATEGORIES
  */
 export const getCategoryColor = (category: string): string => {
   const colors: Record<string, string> = {
     'Text': 'bg-blue-100 text-blue-700 border-blue-200',
-    'File': 'bg-purple-100 text-purple-700 border-purple-200',
     'Developer': 'bg-green-100 text-green-700 border-green-200',
     'Calculator': 'bg-orange-100 text-orange-700 border-orange-200',
+    'Converter': 'bg-purple-100 text-purple-700 border-purple-200',
     'Creative': 'bg-pink-100 text-pink-700 border-pink-200',
+    'Productivity': 'bg-indigo-100 text-indigo-700 border-indigo-200',
+    'Financial': 'bg-emerald-100 text-emerald-700 border-emerald-200',
+    'All': 'bg-gray-100 text-gray-700 border-gray-200',
   };
   return colors[category] || 'bg-gray-100 text-gray-700 border-gray-200';
 };
 
 /**
- * Get category icon
+ * Get category icon - UPDATED WITH ALL CATEGORIES
  */
 export const getCategoryIcon = (category: string): string => {
   const icons: Record<string, string> = {
     'Text': '📝',
-    'File': '📁',
     'Developer': '💻',
     'Calculator': '🧮',
+    'Converter': '🔄',
     'Creative': '🎨',
+    'Productivity': '⚡',
+    'Financial': '💰',
+    'All': '🔧',
   };
   return icons[category] || '🔧';
 };
