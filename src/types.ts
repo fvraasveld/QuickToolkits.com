@@ -1,9 +1,10 @@
-export type ToolCategory = 'Text' | 'File' | 'Developer' | 'Calculator' | 'Creative';
+export type ToolCategory = 'Text' | 'Developer' | 'Calculator' | 'Converter' | 'Creative' | 'Productivity' | 'Financial';
 
 export interface Tool {
   id: string;
   name: string;
-  category: ToolCategory;
+  category: ToolCategory; // Primary category
+  categories?: ToolCategory[]; // Multiple categories support
   description: string;
   exampleInput?: string;
   free: boolean;
@@ -20,7 +21,6 @@ export interface User {
   email?: string;
   isPremium: boolean;
   toolsUsed: string[];
-  favoriteTools: string[];
 }
 
 export interface ToolHistory {
