@@ -8,15 +8,12 @@ interface UserContextType {
   setUser: (user: User) => void;
   isPremium: boolean;
   addToolToHistory: (toolId: string) => void;
-  toggleFavorite: (toolId: string) => void;
   history: ToolHistory[];
-  upgradeToPremium: () => void;
 }
 
 const defaultUser: User = {
   isPremium: false,
   toolsUsed: [],
-  favoriteTools: [],
 };
 
 const UserContext = createContext<UserContextType | undefined>(undefined);
@@ -58,33 +55,12 @@ export const UserProvider: React.FC<UserProviderProps> = ({ children }) => {
     setHistory([newHistoryItem, ...history.slice(0, 49)]); // Keep last 50 items
   };
 
-  const toggleFavorite = (toolId: string) => {
-    const isFavorite = user.favoriteTools.includes(toolId);
-    const newFavorites = isFavorite
-      ? user.favoriteTools.filter(id => id !== toolId)
-      : [...user.favoriteTools, toolId];
-
-    setUserState({
-      ...user,
-      favoriteTools: newFavorites,
-    });
-  };
-
-  const upgradeToPremium = () => {
-    setUserState({
-      ...user,
-      isPremium: true,
-    });
-  };
-
   const value: UserContextType = {
     user,
     setUser,
     isPremium: user.isPremium,
     addToolToHistory,
-    toggleFavorite,
     history,
-    upgradeToPremium,
   };
 
   return (
