@@ -21,6 +21,6 @@ export const SITE_CONFIG = {
   EMAIL: 'support@quicktoolkits.com',
   SUPPORT_EMAIL: 'support@quicktoolkits.com',
   TWITTER: '@quicktoolkits',
-  SUPPORT_LINK: 'https://buymeacoffee.com/quicktoolkits', // Update this with your actual Buy Me a Coffee link
+  SUPPORT_LINK: 'https://buymeacoffee.com/webtools_app', // Update this with your actual Buy Me a Coffee link
   KOFI_LINK: 'https://ko-fi.com/quicktoolkits', // Or use Ko-fi if you prefer
 };
