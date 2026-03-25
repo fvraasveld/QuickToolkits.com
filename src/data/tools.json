@@ -560,6 +560,17 @@
     "createdAt": "2024-01-01"
   },
   {
+    "id": "youtube-transcript",
+    "name": "YouTube Transcript Generator",
+    "category": "Productivity",
+    "description": "Extract transcripts from YouTube videos instantly",
+    "free": true,
+    "pagePath": "/tools/youtube-transcript",
+    "icon": "📺",
+    "tags": ["youtube", "transcript", "video"],
+    "createdAt": "2024-01-01"
+  },
+  {
     "id": "color-picker",
     "name": "Color Picker",
     "category": "Creative",
