@@ -72,11 +72,6 @@ const YouTubeTranscript: React.FC = () => {
       for (let i = 0; i < textElements.length; i++) {
         const element = textElements[i];
         const text = element.textContent || '';
-        const start = parseFloat(element.getAttribute('start') || '0');
-        
-        const minutes = Math.floor(start / 60);
-        const seconds = Math.floor(start % 60);
-        const timestamp = `[${minutes}:${seconds.toString().padStart(2, '0')}]`;
         
         const decodedText = text
           .replace(/&amp;/g, '&')
@@ -88,7 +83,7 @@ const YouTubeTranscript: React.FC = () => {
           .trim();
 
         if (decodedText) {
-          fullTranscript += `${timestamp} ${decodedText}\n`;
+          fullTranscript += decodedText + ' ';
         }
       }
 
@@ -135,9 +130,9 @@ const YouTubeTranscript: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-6 border border-blue-100">
+      <div className="bg-gradient-to-br from-red-50 to-pink-50 rounded-2xl p-6 border border-red-100">
         <h2 className="font-display font-semibold text-xl text-dark-900 mb-2">
-          📺 YouTube Transcript Generator
+          🎬 YouTube Transcript Generator
         </h2>
         <p className="text-dark-600">
           Extract transcripts from YouTube videos instantly. Works with videos that have captions.
@@ -154,7 +149,7 @@ const YouTubeTranscript: React.FC = () => {
               type="text"
               value={url}
               onChange={(e) => setUrl(e.target.value)}
-              placeholder="https://youtube.com/watch?v=... or https://youtu.be/..."
+              placeholder="https://youtube.com/watch?v=..."
               className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
               disabled={loading}
             />
@@ -163,7 +158,7 @@ const YouTubeTranscript: React.FC = () => {
               disabled={loading || !url.trim()}
               className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors font-semibold"
             >
-              {loading ? '⏳ Loading...' : '🎯 Get Transcript'}
+              {loading ? 'Loading...' : 'Get Transcript'}
             </button>
           </div>
         </div>
@@ -178,22 +173,24 @@ const YouTubeTranscript: React.FC = () => {
 
       {transcript && (
         <div className="space-y-4">
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-center mb-2">
             <label className="block text-sm font-semibold text-dark-700">
               Transcript
             </label>
             <div className="flex gap-2">
               <button
                 onClick={copyToClipboard}
-                className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-semibold text-sm"
+                className="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-semibold text-sm flex items-center gap-2"
               >
-                {copied ? '✓ Copied!' : '📋 Copy'}
+                <span>{copied ? '✓' : '📋'}</span>
+                {copied ? 'Copied!' : 'Copy'}
               </button>
               <button
                 onClick={downloadTranscript}
-                className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors font-semibold text-sm"
+                className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors font-semibold text-sm flex items-center gap-2"
               >
-                ⬇️ Download
+                <span>⬇️</span>
+                Download
               </button>
             </div>
           </div>
@@ -206,7 +203,7 @@ const YouTubeTranscript: React.FC = () => {
           />
           <div className="p-4 bg-green-50 border border-green-200 rounded-lg">
             <p className="text-green-800 text-sm">
-              ✅ Successfully extracted transcript ({transcript.split('\n').length} lines)
+              ✅ Successfully extracted transcript ({transcript.split(' ').filter(w => w.length > 0).length} words)
             </p>
           </div>
         </div>
@@ -219,7 +216,7 @@ const YouTubeTranscript: React.FC = () => {
         <ul className="space-y-2 text-dark-700 text-sm">
           <li className="flex items-start">
             <span className="mr-2">1.</span>
-            <span>Paste any YouTube video URL (e.g., https://youtube.com/watch?v=abc123)</span>
+            <span>Paste a YouTube video URL (e.g., https://youtube.com/watch?v=abc123)</span>
           </li>
           <li className="flex items-start">
             <span className="mr-2">2.</span>
