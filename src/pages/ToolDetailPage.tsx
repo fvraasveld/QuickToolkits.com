@@ -47,6 +47,7 @@ import ColorNameFinder from '../components/tools/Converters/ColorNameFinder';
 // Productivity
 import PasswordGenerator from '../components/tools/Productivity/PasswordGenerator';
 import InvoiceGenerator from '../components/tools/Productivity/InvoiceGenerator';
+import YouTubeTranscript from '../components/tools/Productivity/YouTubeTranscript';
 
 // Creative
 import HashtagGenerator from '../components/tools/Creative/HashtagGenerator';
@@ -193,6 +194,8 @@ const ToolDetailPage: React.FC = () => {
         return <PasswordGenerator />;
       case 'invoice-generator':
         return <InvoiceGenerator />;
+      case 'youtube-transcript':
+        return <YouTubeTranscript />;
       
       // Creative
       case 'hashtag-generator':
